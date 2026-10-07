@@ -45,7 +45,8 @@
         color: var(--accent);
       }
       header {
-        padding: 20px max(24px, calc((100vw - 1360px) / 2));
+        min-height: 76px;
+        padding: 12px max(24px, calc((100vw - 1320px) / 2));
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -55,42 +56,52 @@
       .brand {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 9px;
         color: #292b26;
       }
       .brand span {
         font-family: "EB Garamond", Georgia, serif;
-        font-size: 32px;
+        font-size: 27px;
         font-weight: 500;
-        letter-spacing: -1.2px;
+        letter-spacing: -1px;
+        line-height: 1.15;
       }
       .brand-mark {
-        width: 36px;
-        height: 36px;
+        width: 29px;
+        height: 29px;
       }
       .header-copy {
-        font-size: 12px;
+        font-size: 11px;
         color: var(--muted);
+        margin-top: 3px;
       }
       .jump {
         display: flex;
         align-items: center;
-        gap: 12px;
-        font-size: 13px;
+        gap: 10px;
+        font-size: 12px;
+        min-width: 0;
+        max-width: 430px;
+      }
+      .jump label {
+        white-space: nowrap;
+        flex-shrink: 0;
       }
       .jump select {
-        max-width: 360px;
-        width: 100%;
-        padding: 9px;
+        width: 360px;
+        min-width: 0;
+        max-width: 100%;
+        padding: 8px 12px;
         background: #fff;
         border: 1px solid var(--line);
         border-radius: 8px;
+        text-overflow: ellipsis;
       }
       main {
-        max-width: 1360px;
+        max-width: 1320px;
         margin: auto;
-        padding: 38px 28px 28px;
-        min-height: calc(100vh - 178px);
+        padding: 18px 28px 8px;
+        min-height: calc(100vh - 148px);
       }
       .slide[hidden] {
         display: none;
@@ -101,7 +112,7 @@
         font-size: 11px;
         font-weight: 700;
         color: var(--muted);
-        margin: 0 0 10px;
+        margin: 0 0 6px;
       }
       h1,
       h2 {
@@ -135,17 +146,17 @@
         font-weight: 650;
       }
       .intro {
-        padding: 35px 0 20px;
+        padding: 24px 0 12px;
       }
       .intro h1 {
         max-width: 800px;
-        font-size: clamp(40px, 6vw, 76px);
+        font-size: clamp(40px, 5vw, 64px);
       }
       .cards {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 18px;
-        margin: 34px 0;
+        margin: 26px 0;
       }
       .card {
         padding: 24px;
@@ -171,24 +182,29 @@
         gap: 25px;
       }
       .video-heading h2 {
-        font-size: clamp(29px, 3.2vw, 43px);
+        font-size: clamp(25px, 2.6vw, 34px);
+        margin-bottom: 7px;
       }
       .video-heading .description {
         max-width: 870px;
         color: var(--muted);
-        font-size: 14px;
+        font-size: 13px;
+        margin-bottom: 9px;
       }
       .metadata {
         white-space: nowrap;
         font-size: 12px;
         color: var(--muted);
-        padding-top: 8px;
+        padding: 6px 10px;
+        background: #eceee6;
+        border-radius: 7px;
       }
       .video-layout {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) 285px;
-        gap: 24px;
-        margin-top: 20px;
+        grid-template-columns: minmax(0, 1fr) 250px;
+        gap: 18px;
+        margin-top: 12px;
+        align-items: start;
       }
       .player {
         background: #fff;
@@ -200,6 +216,7 @@
         display: block;
         width: 100%;
         aspect-ratio: 16/9;
+        max-height: max(240px, calc(100svh - 360px));
         background: #eaece5;
         object-fit: contain;
       }
@@ -207,13 +224,13 @@
         display: flex;
         justify-content: space-between;
         gap: 15px;
-        padding: 11px 16px;
+        padding: 8px 13px;
         font-size: 12px;
         color: var(--muted);
         border-top: 1px solid var(--line);
       }
       .review-sidebar {
-        padding: 18px 20px;
+        padding: 14px 16px;
         border: 1px solid var(--line);
         border-radius: 15px;
         background: #fff;
@@ -231,8 +248,50 @@
         margin-bottom: 9px;
       }
       .notes {
-        margin-top: 20px;
+        margin-top: 10px;
       }
+      details > summary {
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .notes-panel {
+        padding: 10px 13px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #fff;
+      }
+      .notes-panel[open] > summary {
+        margin-bottom: 10px;
+      }
+      .review-sidebar summary {
+        font-size: 13px;
+      }
+      .review-sidebar[open] summary {
+        margin-bottom: 14px;
+      }
+      .review-sidebar h3 {
+        font-size: 12px;
+      }
+      .review-column {
+        max-height: max(276px, calc(100svh - 324px));
+        overflow-y: auto;
+        scrollbar-width: thin;
+
+        min-width: 0;
+      }
+      .video-context {
+        margin-top: 10px;
+        padding: 10px 13px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #fff;
+      }
+      .video-context p {
+        margin: 7px 0 0;
+      }
+
       .notes label {
         display: block;
         font-size: 13px;
@@ -274,8 +333,8 @@
         cursor: default;
       }
       footer {
-        max-width: 1360px;
-        padding: 16px 28px 24px;
+        max-width: 1320px;
+        padding: 12px 28px 16px;
         margin: auto;
         display: flex;
         align-items: center;
@@ -330,10 +389,12 @@
         .video-layout {
           grid-template-columns: 1fr;
         }
-        .review-sidebar {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 20px;
+        video {
+          max-height: none;
+        }
+        .review-column {
+          max-height: none;
+          overflow: visible;
         }
         .review-sidebar h3:not(:first-child) {
           margin-top: 0;
@@ -348,37 +409,31 @@
           padding-top: 0;
           margin-bottom: 12px;
         }
-        header {
-          align-items: flex-start;
-        }
-        .jump {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 3px;
-        }
         .jump select {
           max-width: 280px;
         }
       }
       @media (max-width: 560px) {
         header {
-          padding: 16px;
+          padding: 12px 16px;
           flex-direction: column;
           gap: 12px;
         }
         .jump {
           width: 100%;
+          max-width: none;
           flex-direction: row;
           align-items: center;
         }
         .jump select {
           max-width: none;
+          flex: 1;
         }
         .header-copy {
           margin-top: 3px;
         }
         main {
-          padding: 25px 16px;
+          padding: 20px 16px 8px;
         }
         .review-sidebar {
           display: block;
@@ -417,12 +472,10 @@
             height="36"
           /><span>LiveCanvas</span>
         </div>
-        <div class="header-copy">
-          Video review deck · a walkthrough of experiments
-        </div>
+        <div class="header-copy">Conversation, made visible · Review deck</div>
       </div>
       <nav class="jump" aria-label="Slide navigation">
-        <label for="slide-select">Go to</label
+        <label for="slide-select">Recording</label
         ><select id="slide-select"></select>
       </nav>
     </header>
@@ -485,7 +538,7 @@
           section.className = "slide";
           section.id = video.id;
           section.hidden = true;
-          section.innerHTML = `<div class="video-heading"><div><p class="eyebrow">${video.section === "archive" ? "Archive / earlier experiment" : "Showcase / current direction"} · ${index + 1} of ${videos.length}</p><h2>${escape(video.title)}</h2><p class="description">${escape(video.subtitle)}</p></div><div class="metadata">${time(video.duration)} · ${video.width} × ${video.height}</div></div><span class="badge">Silent synthetic replay · prepared transcript and graph events</span><div class="video-layout"><div><div class="player"><video controls playsinline preload="none" aria-label="${escape(video.title)}" ${video.poster ? 'poster="' + escape(video.poster) + '"' : ""}><source src="${escape(video.file)}" type="video/mp4">Your browser cannot play this video. <a href="${escape(video.file)}">Download the MP4</a>.</video><div class="player-footer"><span>Pause or seek to inspect the canvas.</span><a href="${escape(video.file)}" download>Download video ↓</a></div></div><p class="description small" style="margin-top:14px">${escape(video.description)}</p><div class="notes"><label for="notes-${escape(video.id)}">Your review notes</label><textarea id="notes-${escape(video.id)}" data-notes="${escape(video.id)}" placeholder="What was clear? What needs another iteration?">${escape(notes[video.id] || "")}</textarea><p class="privacy">Saved locally when available. Nothing is sent anywhere. Export your notes on the final slide.</p></div></div><aside class="review-sidebar" aria-label="Review prompts"><div><h3>Watch for</h3>${list(video.watchFor)}</div><div><h3>Questions to consider</h3>${list(video.questions)}</div></aside></div>`;
+          section.innerHTML = `<div class="video-heading"><div><p class="eyebrow">${video.section === "archive" ? "Archive / earlier experiment" : "Showcase / current direction"} · ${index + 1} of ${videos.length}</p><h2>${escape(video.title)}</h2><p class="description">${escape(video.subtitle)}</p></div><div class="metadata">${time(video.duration)} · ${video.width} × ${video.height}</div></div><span class="badge">Silent synthetic replay · prepared transcript and graph events</span><div class="video-layout"><div><div class="player"><video controls playsinline preload="none" aria-label="${escape(video.title)}" ${video.poster ? 'poster="' + escape(video.poster) + '"' : ""}><source src="${escape(video.file)}" type="video/mp4">Your browser cannot play this video. <a href="${escape(video.file)}">Download the MP4</a>.</video><div class="player-footer"><span>Pause or seek to inspect the canvas.</span><a href="${escape(video.file)}" download>Download video ↓</a></div></div></div><aside class="review-column"><details class="review-sidebar" open aria-label="Review prompts"><summary>Review guide</summary><div><h3>Watch for</h3>${list(video.watchFor)}</div><div><h3>Questions to consider</h3>${list(video.questions)}</div></details><details class="video-context"><summary>About this experiment</summary><p class="small">${escape(video.description)}</p></details><details class="notes notes-panel"><summary>Add review notes</summary><label for="notes-${escape(video.id)}">Your review notes</label><textarea id="notes-${escape(video.id)}" data-notes="${escape(video.id)}" placeholder="What was clear? What needs another iteration?">${escape(notes[video.id] || "")}</textarea><p class="privacy">Saved locally when available. Nothing is sent anywhere. Export your notes on the final slide.</p></details></aside></div>`;
           slides.append(section);
         });
         const final = document.createElement("section");
@@ -502,8 +555,9 @@
               '<option value="' +
               i +
               '">' +
-              (i + 1) +
-              ". " +
+              (i > 0 && i < items.length - 1
+                ? i + " / " + videos.length + " · "
+                : "") +
               escape(item.title) +
               "</option>",
           )
@@ -524,7 +578,7 @@
           document.getElementById("next").disabled =
             active === items.length - 1;
           document.getElementById("slide-count").textContent =
-            active + 1 + " / " + items.length;
+            "Slide " + (active + 1) + " of " + items.length;
           document.getElementById("progress-fill").style.width =
             ((active + 1) / items.length) * 100 + "%";
           if (updateHash)
