@@ -8,4 +8,4 @@ Open index.html locally or serve this folder with a static server. Review notes 
 
 https://bharath03-a.github.io/livecanvas-review/wispr-flow/
 
-One silent, 87-second authored/precomputed onboarding replay, with timed section titles and a click-to-play launch cover. This is an independent engineering prototype, not live AI output or a Wispr affiliation. Only selected presentation assets are published; the application stays private.
+One silent, 92-second authored/precomputed onboarding replay, with timed section titles and a click-to-play launch cover. This is an independent engineering prototype, not live AI output or a Wispr affiliation. Only selected presentation assets are published; the application stays private.
